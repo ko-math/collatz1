@@ -8,8 +8,8 @@ for(let i = 2 ** (N - 1);i <= 2 ** N - 1;i++){
 function max(n){
   let a = n;
   let max = n;
-  while(a === 1){
-    a % 2 ? a /= 2 : a = a * 3 + 1;
+  while(a > 1){
+    a % 2 === 0 ? a /= 2 : a = a * 3 + 1;
     if(a > max)max = a;
   }
   return max;
