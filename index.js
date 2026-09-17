@@ -1,7 +1,7 @@
 const data = [
   ['n','max']
 ];
-const N = 5;
+const N = 7;
 for(let i = 2 ** (N - 1);i <= 2 ** N - 1;i++){
   data.push([i,max(i)]);
 }
