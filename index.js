@@ -1,9 +1,9 @@
 const data = [
-  ['n','max']
+  ['2','n','max']
 ];
 const N = 7;
 for(let i = 2 ** (N - 1);i <= 2 ** N - 1;i++){
-  data.push([i,max(i)]);
+  data.push([i.toString(2),i,max(i)]);
 }
 function max(n){
   let a = n;
