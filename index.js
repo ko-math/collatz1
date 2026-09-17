@@ -17,6 +17,7 @@ function max(n){
 
 const table = document.createElement('table');
 table.border = '1';
+table.id = 'table';
 // 行とセルの生成
 data.forEach((rowData, rowIndex) => {
   const tr = document.createElement('tr');
@@ -34,3 +35,16 @@ data.forEach((rowData, rowIndex) => {
 
 // 指定したコンテナにテーブルを追加
 document.querySelector('#content').append(table);
+
+document.querySelector('#btn').addEventListener('click', () => {
+    const target = document.querySelector('#table');
+    
+    html2canvas(target).then(canvas => {
+      // Canvasをimg要素にして画面に表示する
+      const imgData = canvas.toDataURL('image/png');
+      const img = new Image();
+      img.src = imgData;
+      
+      document.querySelector('#result').append(img);
+    });
+  });
