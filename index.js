@@ -1,17 +1,3 @@
-function loadHtml2Canvas() {
-  return new Promise((resolve, reject) => {
-    // すでに読み込まれている場合はスキップ
-    if (window.html2canvas) {
-      resolve();
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = 'https://cloudflare.com';
-    script.onload = () => resolve();
-    script.onerror = () => reject(new Error('html2canvas の読み込みに失敗しました'));
-    document.head.append(script);
-  });
-}
 const data = [
   ['n(10)','n(2)','max']
 ];
@@ -49,7 +35,7 @@ data.forEach((rowData, rowIndex) => {
 
 // 指定したコンテナにテーブルを追加
 document.querySelector('#content').append(table);
-
+/*
 document.querySelector('#btn').addEventListener('click', async () => {
   try {
     // ボタンを押したタイミングでライブラリをロード
@@ -74,3 +60,4 @@ document.querySelector('#btn').addEventListener('click', async () => {
     alert('画像の生成に失敗しました。');
   }
 });
+*/
