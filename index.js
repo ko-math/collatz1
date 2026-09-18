@@ -1,3 +1,17 @@
+function loadHtml2Canvas() {
+  return new Promise((resolve, reject) => {
+    // すでに読み込まれている場合はスキップ
+    if (window.html2canvas) {
+      resolve();
+      return;
+    }
+    const script = document.createElement('script');
+    script.src = 'https://cloudflare.com';
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error('html2canvas の読み込みに失敗しました'));
+    document.head.append(script);
+  });
+}
 const data = [
   ['2','n','max']
 ];
@@ -36,10 +50,18 @@ data.forEach((rowData, rowIndex) => {
 // 指定したコンテナにテーブルを追加
 document.querySelector('#content').append(table);
 
-document.querySelector('#btn').addEventListener('click', () => {
+document.querySelector('#btn').addEventListener('click', async () => {
+  try {
+    // ボタンを押したタイミングでライブラリをロード
+    await loadHtml2Canvas();
+    
     const target = document.querySelector('#table');
     
+    // 画像化を実行
     html2canvas(target).then(canvas => {
+      // 連続で押したときのために、前回の結果をクリア
+      document.querySelector('#result').innerHTML = '';
+      
       // Canvasをimg要素にして画面に表示する
       const imgData = canvas.toDataURL('image/png');
       const img = new Image();
@@ -47,4 +69,8 @@ document.querySelector('#btn').addEventListener('click', () => {
       
       document.querySelector('#result').append(img);
     });
-  });
+  } catch (error) {
+    console.error(error);
+    alert('画像の生成に失敗しました。');
+  }
+});
