@@ -13,11 +13,11 @@ function loadHtml2Canvas() {
   });
 }
 const data = [
-  ['2','n','max']
+  ['n(10)','n(2)','max']
 ];
 const N = 4;
 for(let i = 2 ** (N - 1);i <= 2 ** N - 1;i++){
-  data.push([i.toString(2),i,max(i)]);
+  data.push([i,i.toString(2),max(i)]);
 }
 function max(n){
   let a = n;
