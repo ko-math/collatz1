@@ -11,7 +11,7 @@ function max(n){
   let a = n;
   let max = n;
   while(a > 1){
-    a % 2 === 0 ? a /= 2 : a = (a * 3 + 1) / 2;
+    a = (a % 2 === 0 ?(a / 2):(a * 3 + 1) / 2);
     if(a > max)max = a;
   }
   return max;
