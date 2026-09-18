@@ -2,7 +2,7 @@ const data = [
   ['n(10)','n(2)','max']
 ];
 const N = 7;
-const MIN = 120;//2 ** (N - 1);
+const MIN = 120; //2 ** (N - 1)
 const MAX = 2 ** N - 1;
 for(let i = MIN;i <= MAX;i++){
   data.push([i,i.toString(2),max(i)]);
