@@ -53,7 +53,7 @@ document.querySelector('#content').append(table);
 document.querySelector('#btn').addEventListener('click', async () => {
   try {
     // ボタンを押したタイミングでライブラリをロード
-    await loadHtml2Canvas();
+    //await loadHtml2Canvas();
     
     const target = document.querySelector('#table');
     
